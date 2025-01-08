@@ -1,0 +1,31 @@
+[gd_scene load_steps=4 format=3 uid="uid://bvpgwd2v5oauk"]
+
+[ext_resource type="Script" path="res://scripts/shirt.gd" id="1_j4onr"]
+[ext_resource type="Texture2D" uid="uid://d2ky7vklh3sr8" path="res://assets/shirt2.png" id="2_iwpbo"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bjdfg"]
+radius = 143.333
+height = 446.667
+
+[node name="Shirt2" type="Node2D"]
+scale = Vector2(0.3, 0.3)
+script = ExtResource("1_j4onr")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(23.3333, 0)
+rotation = -0.507891
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("2_iwpbo")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1.90735e-06, 0)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_bjdfg")
+debug_color = Color(0.279287, 0.588505, 0.635666, 0.42)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

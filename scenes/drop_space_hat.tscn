@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://028i40etmlkb"]
+
+[ext_resource type="Script" path="res://scripts/drop_space.gd" id="1_eb7re"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_mv2ca"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vuu0e"]
+size = Vector2(37, 14)
+
+[node name="DropSpaceHat" type="StaticBody2D" groups=["hat"]]
+physics_material_override = SubResource("PhysicsMaterial_mv2ca")
+script = ExtResource("1_eb7re")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_vuu0e")

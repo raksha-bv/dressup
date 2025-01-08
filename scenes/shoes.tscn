@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://cq44qrwgcjpfd"]
+
+[ext_resource type="Script" path="res://scripts/shoes.gd" id="1_bdoe1"]
+[ext_resource type="Texture2D" uid="uid://s7mctx3towam" path="res://assets/Shoes_.png" id="2_1eivx"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_bjdfg"]
+radius = 112.0
+height = 360.0
+
+[node name="Shoes" type="Node2D"]
+scale = Vector2(0.3, 0.3)
+script = ExtResource("1_bdoe1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_1eivx")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1, 2)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_bjdfg")
+debug_color = Color(0.279287, 0.588505, 0.635666, 0.42)
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

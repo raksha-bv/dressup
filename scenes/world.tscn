@@ -1,0 +1,58 @@
+[gd_scene load_steps=14 format=3 uid="uid://bnetoxe355v8j"]
+
+[ext_resource type="Texture2D" uid="uid://dardxxnfe3cux" path="res://assets/closet_bg.png" id="1_u8wsg"]
+[ext_resource type="PackedScene" uid="uid://d2cg2y8mp6ima" path="res://scenes/man.tscn" id="2_juew7"]
+[ext_resource type="PackedScene" uid="uid://b6q7s8u3m6rk5" path="res://scenes/hat.tscn" id="3_gtt4j"]
+[ext_resource type="PackedScene" uid="uid://028i40etmlkb" path="res://scenes/drop_space_hat.tscn" id="4_i8k2i"]
+[ext_resource type="PackedScene" uid="uid://j4klf48gc2fe" path="res://scenes/drop_space_shirt.tscn" id="5_15w8v"]
+[ext_resource type="PackedScene" uid="uid://saorrix4glbo" path="res://scenes/drop_space_shoes.tscn" id="6_gjwj4"]
+[ext_resource type="PackedScene" uid="uid://bn47r0virgk51" path="res://scenes/pant.tscn" id="7_br8gr"]
+[ext_resource type="PackedScene" uid="uid://duuk0o8vu5eoy" path="res://scenes/drop_space_pant.tscn" id="8_bhw72"]
+[ext_resource type="PackedScene" uid="uid://cq44qrwgcjpfd" path="res://scenes/shoes.tscn" id="9_vssc6"]
+[ext_resource type="PackedScene" uid="uid://djovrxln8teyg" path="res://scenes/shirt.tscn" id="10_i5vxo"]
+[ext_resource type="PackedScene" uid="uid://bu075k3wupugb" path="res://scenes/hat2.tscn" id="11_sf64r"]
+[ext_resource type="PackedScene" uid="uid://cri1msecs2jeg" path="res://scenes/pant2.tscn" id="12_ac0vk"]
+[ext_resource type="PackedScene" uid="uid://bvpgwd2v5oauk" path="res://scenes/shirt2.tscn" id="13_2njt3"]
+
+[node name="world" type="Node2D"]
+
+[node name="ClosetBg" type="Sprite2D" parent="."]
+position = Vector2(367, 207)
+scale = Vector2(1.16933, 1.46809)
+texture = ExtResource("1_u8wsg")
+
+[node name="man" parent="." instance=ExtResource("2_juew7")]
+position = Vector2(177, 258)
+
+[node name="Hat" parent="." instance=ExtResource("3_gtt4j")]
+position = Vector2(325, 71)
+
+[node name="Pant" parent="." instance=ExtResource("7_br8gr")]
+position = Vector2(323, 269)
+
+[node name="DropSpace" parent="." instance=ExtResource("4_i8k2i")]
+position = Vector2(178, 133)
+
+[node name="DropSpaceShirt" parent="." instance=ExtResource("5_15w8v")]
+position = Vector2(177, 281)
+
+[node name="DropSpaceShoes" parent="." instance=ExtResource("6_gjwj4")]
+position = Vector2(179, 373)
+
+[node name="DropSpacePant" parent="." instance=ExtResource("8_bhw72")]
+position = Vector2(176, 333)
+
+[node name="Shoes" parent="." instance=ExtResource("9_vssc6")]
+position = Vector2(421, 354)
+
+[node name="Shirt" parent="." instance=ExtResource("10_i5vxo")]
+position = Vector2(316, 164)
+
+[node name="Hat2" parent="." instance=ExtResource("11_sf64r")]
+position = Vector2(437, 69)
+
+[node name="Pant2" parent="." instance=ExtResource("12_ac0vk")]
+position = Vector2(416, 264)
+
+[node name="Shirt2" parent="." instance=ExtResource("13_2njt3")]
+position = Vector2(419, 167)
