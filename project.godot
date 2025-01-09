@@ -11,17 +11,20 @@ config_version=5
 [application]
 
 config/name="DressUp"
+run/main_scene="res://scenes/intro.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
 config/icon="res://icon.svg"
 
 [autoload]
 
 Global="*res://scripts/global.gd"
+AudioPlayer="*res://scripts/audio_player.gd"
 
 [display]
 
 window/size/viewport_width=732
 window/size/viewport_height=412
+window/stretch/mode="viewport"
 
 [global_group]
 
@@ -40,4 +43,6 @@ click={
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="mobile"
+textures/vram_compression/import_etc2_astc=true

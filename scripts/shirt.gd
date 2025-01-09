@@ -5,9 +5,11 @@ var is_in_drop = false
 var body_ref
 var offset: Vector2
 var initialPos: Vector2
+var item_id: String
 
 func _ready() -> void:
 	initialPos = global_position
+	item_id = name
 
 func _process(delta: float) -> void:
 	if draggable:
@@ -28,9 +30,9 @@ func _process(delta: float) -> void:
 						var return_tween = get_tree().create_tween()
 						shirt.remove_from_group("worn_shirt")
 						return_tween.tween_property(shirt, "global_position", shirt.initialPos, 0.2).set_ease(Tween.EASE_OUT)
-				
-				# Place the new shirt
+				AudioPlayer.play_place()
 				tween.tween_property(self, "position", body_ref.position, 0.2).set_ease(Tween.EASE_OUT)
+				
 				add_to_group("worn_shirt")
 			else:
 				tween.tween_property(self, "global_position", initialPos, 0.2).set_ease(Tween.EASE_OUT)

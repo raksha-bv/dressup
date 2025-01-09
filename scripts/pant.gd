@@ -5,9 +5,11 @@ var is_in_drop = false
 var body_ref
 var offset: Vector2
 var initialPos: Vector2
+var item_id: String
 
 func _ready() -> void:
 	initialPos = global_position
+	item_id = name
 
 func _process(delta: float) -> void:
 	if draggable:
@@ -22,17 +24,16 @@ func _process(delta: float) -> void:
 			Global.is_dragging = false
 			var tween = get_tree().create_tween()
 			if is_in_drop:
-				# Check if there's already pants in the drop zone
 				var existing_pants = get_tree().get_nodes_in_group("worn_pants")
 				for pants in existing_pants:
 					if pants != self:
-						# Return the existing pants to its original position
 						var return_tween = get_tree().create_tween()
 						pants.remove_from_group("worn_pants")
 						return_tween.tween_property(pants, "global_position", pants.initialPos, 0.2).set_ease(Tween.EASE_OUT)
 				
 				# Place the new pants
 				tween.tween_property(self, "position", body_ref.position, 0.2).set_ease(Tween.EASE_OUT)
+				AudioPlayer.play_place()
 				add_to_group("worn_pants")
 			else:
 				tween.tween_property(self, "global_position", initialPos, 0.2).set_ease(Tween.EASE_OUT)

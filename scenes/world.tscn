@@ -1,6 +1,7 @@
-[gd_scene load_steps=14 format=3 uid="uid://bnetoxe355v8j"]
+[gd_scene load_steps=16 format=3 uid="uid://bnetoxe355v8j"]
 
-[ext_resource type="Texture2D" uid="uid://dardxxnfe3cux" path="res://assets/closet_bg.png" id="1_u8wsg"]
+[ext_resource type="Script" path="res://scripts/world.gd" id="1_4vbec"]
+[ext_resource type="Texture2D" uid="uid://dardxxnfe3cux" path="res://assets/main/closet_bg.png" id="1_u8wsg"]
 [ext_resource type="PackedScene" uid="uid://d2cg2y8mp6ima" path="res://scenes/man.tscn" id="2_juew7"]
 [ext_resource type="PackedScene" uid="uid://b6q7s8u3m6rk5" path="res://scenes/hat.tscn" id="3_gtt4j"]
 [ext_resource type="PackedScene" uid="uid://028i40etmlkb" path="res://scenes/drop_space_hat.tscn" id="4_i8k2i"]
@@ -13,8 +14,10 @@
 [ext_resource type="PackedScene" uid="uid://bu075k3wupugb" path="res://scenes/hat2.tscn" id="11_sf64r"]
 [ext_resource type="PackedScene" uid="uid://cri1msecs2jeg" path="res://scenes/pant2.tscn" id="12_ac0vk"]
 [ext_resource type="PackedScene" uid="uid://bvpgwd2v5oauk" path="res://scenes/shirt2.tscn" id="13_2njt3"]
+[ext_resource type="Texture2D" uid="uid://b8h4cymx6usei" path="res://assets/main/tick.png" id="15_rx4a1"]
 
 [node name="world" type="Node2D"]
+script = ExtResource("1_4vbec")
 
 [node name="ClosetBg" type="Sprite2D" parent="."]
 position = Vector2(367, 207)
@@ -25,34 +28,58 @@ texture = ExtResource("1_u8wsg")
 position = Vector2(177, 258)
 
 [node name="Hat" parent="." instance=ExtResource("3_gtt4j")]
+z_index = 1
 position = Vector2(325, 71)
 
 [node name="Pant" parent="." instance=ExtResource("7_br8gr")]
+z_index = 2
 position = Vector2(323, 269)
 
 [node name="DropSpace" parent="." instance=ExtResource("4_i8k2i")]
 position = Vector2(178, 133)
+script = null
 
 [node name="DropSpaceShirt" parent="." instance=ExtResource("5_15w8v")]
 position = Vector2(177, 281)
+script = null
 
 [node name="DropSpaceShoes" parent="." instance=ExtResource("6_gjwj4")]
 position = Vector2(179, 373)
+script = null
 
 [node name="DropSpacePant" parent="." instance=ExtResource("8_bhw72")]
 position = Vector2(176, 333)
+script = null
 
 [node name="Shoes" parent="." instance=ExtResource("9_vssc6")]
+z_index = 1
 position = Vector2(421, 354)
 
 [node name="Shirt" parent="." instance=ExtResource("10_i5vxo")]
+z_index = 3
 position = Vector2(316, 164)
 
 [node name="Hat2" parent="." instance=ExtResource("11_sf64r")]
-position = Vector2(437, 69)
+z_index = 1
+position = Vector2(440, 77)
 
 [node name="Pant2" parent="." instance=ExtResource("12_ac0vk")]
+z_index = 2
 position = Vector2(416, 264)
 
 [node name="Shirt2" parent="." instance=ExtResource("13_2njt3")]
-position = Vector2(419, 167)
+z_index = 3
+position = Vector2(428, 168)
+
+[node name="Button" type="Button" parent="."]
+self_modulate = Color(0.984314, 1, 1, 1)
+top_level = true
+offset_left = 553.0
+offset_top = 341.0
+offset_right = 598.0
+offset_bottom = 385.0
+icon = ExtResource("15_rx4a1")
+flat = true
+expand_icon = true
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

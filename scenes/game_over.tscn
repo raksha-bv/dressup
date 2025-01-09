@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://dk0cgw2j0jfm6"]
+
+[ext_resource type="Script" path="res://scripts/game_over.gd" id="1_8q3fc"]
+[ext_resource type="Texture2D" uid="uid://mm14gdroy35a" path="res://assets/cutscenes/game_over.png" id="2_w5xw1"]
+
+[node name="game_over" type="Node2D"]
+script = ExtResource("1_8q3fc")
+
+[node name="GameOver" type="Sprite2D" parent="."]
+position = Vector2(366, 207)
+scale = Vector2(0.38125, 0.381481)
+texture = ExtResource("2_w5xw1")
+
+[node name="Button" type="Button" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = 526.0
+offset_top = 318.0
+offset_right = 715.0
+offset_bottom = 359.0
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

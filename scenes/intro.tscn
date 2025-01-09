@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://b6dewp3tstipb"]
+
+[ext_resource type="Script" path="res://scripts/intro.gd" id="1_8h4lb"]
+[ext_resource type="VideoStream" path="res://assets/cutscenes/intro.ogv" id="2_nkmnf"]
+
+[node name="Intro" type="Node2D"]
+script = ExtResource("1_8h4lb")
+
+[node name="VideoStreamPlayer" type="VideoStreamPlayer" parent="."]
+offset_right = 1920.0
+offset_bottom = 1088.0
+scale = Vector2(0.4, 0.4)
+size_flags_vertical = 4
+stream = ExtResource("2_nkmnf")
+autoplay = true
+
+[connection signal="finished" from="VideoStreamPlayer" to="." method="_on_video_stream_player_finished"]
